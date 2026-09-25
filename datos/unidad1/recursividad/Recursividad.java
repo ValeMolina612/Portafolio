@@ -1,21 +1,62 @@
 package datos.unidad1.recursividad;
-import java.util.Scanner;
 
 public class Recursividad {
- public static void saludo(int total, String nombre){
-  if(total <= 0)//Condición base
-     return;
-  else{//Condición recurciva o repititiva
-   System.out.println("Hola " + nombre);
-   saludo(total-1, nombre);
-  }
- }
 
- public static void main(String[] args){
-  Scanner sc = new Scanner(System.in);
+    public static void saludo(int total, String nombre) {
 
-  System.out.println("Cúal es tu nombre ");
-  String nombre = sc.nextLine();
-  saludo(10, nombre);
- }
-}	
+        if (total <= 0)
+            return;
+        else
+            System.out.println("Hola " + nombre);
+
+        saludo(total - 1, nombre);
+    }
+
+
+/**
+nombre:valeria molina rosas
+fecha: 25 de septimbre de 2026
+se hizo la funcionalidad de cuenta regresiva
+
+**/
+public static void cuentaRegresiva(int n){
+
+	if (n < 1 ){
+		return;
+
+	}else{
+		System.out.println(n + " ");
+		cuentaRegresiva(n-1);
+	}
+
+}
+/**
+nombre:molina rosas maria valeria 
+fecha: 25 de septimbre de 2026
+se hizo la funcionalidad de suma de un arregloo
+
+**/
+
+public static int sumaRecursiva(int[] datos, int n) {
+
+        if (n < 1) {
+            return 0;
+        } else {
+            return datos[n -1] + sumaRecursiva(datos, n -1);
+        }
+    }
+
+public static void main(String[] a) {
+
+        //saludo(10, "vale");
+        //cuentaRegresiva(100);
+	
+	int [] datos={1,2,3,4,5};
+	
+	int resultado=sumaRecursiva(datos,datos.length);
+        
+        System.out.println("total de la suma :" + resultado);
+
+    }
+
+}
